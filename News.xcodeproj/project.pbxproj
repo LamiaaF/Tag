@@ -21,6 +21,8 @@
 		EB7D8E592B73BDC4007FCE5A /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8E582B73BDC4007FCE5A /* Entity.swift */; };
 		EB7D8E662B763C3F007FCE5A /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7D8E652B763C3F007FCE5A /* DetailsCell.swift */; };
 		EB9F29DF2B690C0700F3969F /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9F29DE2B690C0700F3969F /* ArticleListView.swift */; };
+		EBB20F302B9B226300280679 /* ArticleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20F2F2B9B226300280679 /* ArticleListView.swift */; };
+		EBB20F322B9B229600280679 /* ArticleDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20F312B9B229600280679 /* ArticleDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		EB7D8E582B73BDC4007FCE5A /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		EB7D8E652B763C3F007FCE5A /* DetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCell.swift; sourceTree = "<group>"; };
 		EB9F29DE2B690C0700F3969F /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
+		EBB20F2F2B9B226300280679 /* ArticleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListView.swift; sourceTree = "<group>"; };
+		EBB20F312B9B229600280679 /* ArticleDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 		EB573F9F2B61235A00A9E514 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				EBB20F2E2B9B224200280679 /* DetailsFeature */,
 				EB7D8E562B73BD06007FCE5A /* ListFeature */,
 				EB573FC02B612E1600A9E514 /* Cells */,
 				EB573FA02B61235A00A9E514 /* AppDelegate.swift */,
@@ -105,6 +110,15 @@
 				EB573FB62B612B1200A9E514 /* ArticleListCoordinator.swift */,
 			);
 			path = ListFeature;
+			sourceTree = "<group>";
+		};
+		EBB20F2E2B9B224200280679 /* DetailsFeature */ = {
+			isa = PBXGroup;
+			children = (
+				EBB20F2F2B9B226300280679 /* ArticleListView.swift */,
+				EBB20F312B9B229600280679 /* ArticleDetailsViewController.swift */,
+			);
+			path = DetailsFeature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,10 +196,12 @@
 				EB9F29DF2B690C0700F3969F /* ArticleListView.swift in Sources */,
 				EB573FB52B612AB900A9E514 /* AppCoordinator.swift in Sources */,
 				EB7D8E662B763C3F007FCE5A /* DetailsCell.swift in Sources */,
+				EBB20F302B9B226300280679 /* ArticleListView.swift in Sources */,
 				EB573FA12B61235A00A9E514 /* AppDelegate.swift in Sources */,
 				EB573FB72B612B1200A9E514 /* ArticleListCoordinator.swift in Sources */,
 				EB573FC62B6149BF00A9E514 /* ArticleFormatter.swift in Sources */,
 				EB573FBB2B612BD100A9E514 /* ArticleInteractor.swift in Sources */,
+				EBB20F322B9B229600280679 /* ArticleDetailsViewController.swift in Sources */,
 				EB573FB92B612B2F00A9E514 /* ArticleListService.swift in Sources */,
 				EB573FC22B612E2D00A9E514 /* ArticleCell.swift in Sources */,
 				EB573FBF2B612DAA00A9E514 /* ArticleListViewController.swift in Sources */,
