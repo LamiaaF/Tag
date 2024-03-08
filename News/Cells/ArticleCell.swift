@@ -85,7 +85,7 @@ class ArticleCell: UICollectionViewCell {
 
     // MARK: - Configuration
 
-    func configure(with articleData: ArticleListViewData) {
+    func setViewData(with articleData: ArticleListViewData) {
         titleLabel.text = articleData.title
         authorLabel.text = "Author: \(articleData.author ?? "Unknown Author")"
         descriptionLabel.text = articleData.description

@@ -9,9 +9,6 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    
-    
     var window: UIWindow?
      var appCoordinator: AppCoordinator?
 
@@ -20,15 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          window = UIWindow(frame: UIScreen.main.bounds)
          guard let window = window else { return false }
 
-         appCoordinator = AppCoordinator()
+         appCoordinator = AppCoordinator(window: window)
          appCoordinator?.start(window: window)
 
          window.makeKeyAndVisible()
          return true
      }
 }
-        
-        // MARK: UISceneSession Lifecycle
+
+  // MARK: UISceneSession Lifecycle
         
         func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
             // Called when a new scene session is being created.

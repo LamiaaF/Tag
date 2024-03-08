@@ -4,50 +4,39 @@
 //
 //  Created by Avito on 24/1/2024.
 //
-
 import Foundation
 import UIKit
 
-class AppCoordinator {
-    let articleListCoordinator: ArticleListCoordinator
+class AppCoordinator: NSObject {
+    var window: UIWindow?
+    var navigationController: UINavigationController
+    var articleListCoordinator: ArticleListCoordinator?
 
-    init() {
+    init?(window: UIWindow?) {
+        self.window = window
+        self.navigationController = UINavigationController()
+        
+        // Create the necessary dependencies for ArticleListInteractor
         let articleListService = ArticleListApiService()
         let articleListFormatter = ArticleListFormatter()
         let articleInteractor = ArticleListInteractor(service: articleListService, formatter: articleListFormatter)
-
-        let viewControllerFactory = DefaultArticleListViewControllerFactory(
-            articleService: articleListService,
-            articleInteractor: articleInteractor,
-            articleListFormatter: articleListFormatter
-        )
-
-        let articleDetailFactory = DefaultArticleDetailViewControllerFactory()
-
-        let articleListViewController = viewControllerFactory.makeArticleListViewController()
-
-        let navigationController = UINavigationController()
-        let dependencies = ArticleListCoordinator.Dependencies(
+        
+        // Create the necessary dependencies for ArticleListViewController
+        let articleListViewController = ArticleListViewController(articles: [])
+        
+        // Initialize ArticleListCoordinator
+        self.articleListCoordinator = ArticleListCoordinator(
             articleListInteractor: articleInteractor,
-            articleListFormatter: articleListFormatter,
-            articleService: articleListService,
             articleListViewController: articleListViewController,
-            articleDetailFactory: articleDetailFactory,
-            navigationController: navigationController
+            navigationController: self.navigationController
         )
-
-        articleListCoordinator = ArticleListCoordinator(dependencies: dependencies)
+    }
+        func start(window: UIWindow) {
+            articleListCoordinator?.start()
+            window.rootViewController = articleListCoordinator?.navigationController
+            window.makeKeyAndVisible()
+        }
     }
 
-    func start(window: UIWindow) {
-        articleListCoordinator.start()
-        window.rootViewController = articleListCoordinator.deps.navigationController
-        window.makeKeyAndVisible()
-    }
-}
-
-
-    
-    
 
 

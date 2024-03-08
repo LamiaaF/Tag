@@ -11,10 +11,6 @@ struct ArticleResponse: Decodable {
     let articles: [ArticleEntity]
 }
 
-protocol ArticleListService {
-    func fetchArticles(completion: @escaping (Result<[ArticleEntity], Error>) -> Void)
-}
-
 class ArticleListApiService: ArticleListService {
     private let apiKey = "1e720f9e9cd845bea37152f911eb5dd9" // Replace with your actual API key
 

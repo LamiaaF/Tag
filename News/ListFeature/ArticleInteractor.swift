@@ -1,6 +1,10 @@
+//
 // ArticleListInteractor.swift
+//  News
+//
+//  Created by Avito on 9/2/2024.
+//
 
-import Foundation
 
 import Foundation
 
@@ -14,7 +18,9 @@ class ArticleListInteractor {
         self.formatter = formatter
     }
 
-    func fetchArticles(completion: @escaping (Result<Void, Error>) -> Void) {
+    // MARK: - Public Methods
+
+    func fetchArticles(completion: @escaping (Result<[ArticleListViewData], Error>) -> Void) {
         // Fetch articles
         service.fetchArticles { [weak self] result in
             guard let self = self else { return }
@@ -22,20 +28,12 @@ class ArticleListInteractor {
             case .success(let articles):
                 // Update the UI with the fetched articles
                 print("Fetched articles successfully:", articles)
-                
-                // Assuming articles is an array of ArticleEntity
-                self.articlesViewData = articles.map { article in
-                    ArticleListViewData(
-                        title: article.title,
-                        author: article.author ?? "Unknown Author",
-                        description: article.description ?? "",
-                        urlToImage: article.urlToImage,
-                        content: article.content 
-                    )
-                }
 
-                // Call the completion with success
-                completion(.success(()))
+                // Convert ArticleEntity to ArticleListViewData using formatter
+                let viewData = self.formatter.format(articles: articles)
+
+                // Call the completion with the formatted view data
+                completion(.success(viewData))
 
             case .failure(let error):
                 // Call the completion with the error
@@ -45,18 +43,11 @@ class ArticleListInteractor {
         }
     }
 
-    
-    func numberOfArticles() -> Int {
-            return articlesViewData.count
-        }
-
     func article(at index: Int) -> ArticleListViewData? {
         guard index >= 0, index < articlesViewData.count else {
             return nil
         }
         return articlesViewData[index]
     }
-
-
-    
 }
+
